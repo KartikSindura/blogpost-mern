@@ -43,7 +43,7 @@ router.post("/login", async (req, res) => {
     );
     const { password, ...info } = user._doc;
     res
-      .cookie("token", token, { sameSite: "none", secure: true })
+      .cookie("token", token, { sameSite: "none", secure: true, httpOnly: true })
       .status(200)
       .json(info);
   } catch (err) {
