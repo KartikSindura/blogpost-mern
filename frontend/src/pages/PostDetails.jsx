@@ -77,7 +77,7 @@ const PostDetails = () => {
 
       // fetchPostComments()
       // setComment("")
-      window.location.reload(true);
+      // window.location.reload(true);
     } catch (err) {
       console.log(err);
     }
