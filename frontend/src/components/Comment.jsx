@@ -5,13 +5,14 @@ import { URL } from "../url";
 import { useContext } from "react";
 import { UserContext } from "../context/UserContext";
 
-const Comment = ({ c, post }) => {
+const Comment = ({ c, post, onDeleteSuccess = () => {} }) => {
   const { user } = useContext(UserContext);
   const deleteComment = async (id) => {
     try {
       await axios.delete(URL + "/api/comments/" + id, {
         withCredentials: true,
       });
+      onDeleteSuccess()
       // window.location.reload(true);
     } catch (err) {
       console.log(err);

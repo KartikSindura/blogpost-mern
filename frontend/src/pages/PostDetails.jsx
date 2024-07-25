@@ -45,6 +45,8 @@ const PostDetails = () => {
     fetchPost();
   }, [postId]);
 
+  const onDeleteSuccess = () => fetchPostComments()
+
   const fetchPostComments = async () => {
     setLoader(true);
     try {
@@ -134,7 +136,7 @@ const PostDetails = () => {
           <div className="flex flex-col mt-4">
             <h3 className="mt-6 mb-4 font-semibold">Comments:</h3>
             {comments?.map((c) => (
-              <Comment key={c._id} c={c} post={post} />
+              <Comment key={c._id} c={c} post={post} onDeleteSuccess={onDeleteSuccess} />
             ))}
           </div>
           {/* write a comment */}
