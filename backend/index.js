@@ -28,11 +28,13 @@ app.use("/images", express.static(path.join(__dirname, "/images")));
 app.use(
   cors({
     origin: [
-      "https://blogpost-mern.vercel.app/",
-      "https://blogpost-mern-kartiksinduras-projects.vercel.app/",
-      "https://blogpost-mern-git-main-kartiksinduras-projects.vercel.app/",
+      "https://blogpost-mern.vercel.app",
+      "https://blogpost-mern-kartiksinduras-projects.vercel.app",
+      "https://blogpost-mern-git-main-kartiksinduras-projects.vercel.app",
     ],
     credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Origin', 'X-Requested-With', 'Content-Type', 'Accept', 'Authorization'],
   })
 );
 app.use(cookieParser());
